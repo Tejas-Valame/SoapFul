@@ -15,4 +15,4 @@ keytool -genkey -keystore src/main/resources/keystore.p12 -storetype PKCS12 -sto
 
 2. Access the API from here
 - [SOAP](https://localhost:443/restapi/v1/services)
-- [REST](https://localhost:443/restapi/v1/swagger/index.html) 
+- [REST](https://localhost/restapi/v1/swagger-ui/index.html) 
