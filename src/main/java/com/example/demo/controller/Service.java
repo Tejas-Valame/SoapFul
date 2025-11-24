@@ -17,7 +17,7 @@ import jakarta.jws.WebService;
 @WebService(serviceName = "helloService", portName = "helloPort", targetNamespace = "com.example.demo")
 public interface Service {
 
-    @WebMethod()
+    @WebMethod
     @RequestMapping(path = "hello", method = RequestMethod.GET)
     public Hello getHello(@RequestParam(defaultValue = "World") @WebParam(name = "name") String name);
 

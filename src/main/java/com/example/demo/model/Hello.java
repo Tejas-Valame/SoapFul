@@ -1,8 +1,6 @@
 package com.example.demo.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +9,6 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 public class Hello {
 
-    @XmlElement(name = "greeting")
     private String greeting;
 
     public Hello(String name) {
@@ -20,7 +17,7 @@ public class Hello {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return """
                 {"greeting: "%s"}""".formatted(greeting);
     }
