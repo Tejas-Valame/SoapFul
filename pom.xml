@@ -17,6 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>25</java.version>
 		<cxf.version>4.1.4</cxf.version>
+    	<start-class>com.example.demo.DemoApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,8 +27,6 @@
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
-			<!-- <version>1.16.2</version> -->
-			<!-- <scope>compile</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -75,10 +74,12 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
-					<compilerArgs>
-						<!-- Enabling annotation processing when calling javac for JDK23+ -->
-						<arg>-proc:full</arg>
-					</compilerArgs>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 			<plugin>
