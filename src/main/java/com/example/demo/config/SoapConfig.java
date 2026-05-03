@@ -5,7 +5,7 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.demo.controller.ServiceImpl;
+import com.example.demo.soap.SoapImpl;
 
 import jakarta.xml.ws.Endpoint;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +14,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SoapConfig {
 
-    // All final members will injected by lombok
     private final Bus bus;
-    private final ServiceImpl impl;
+    private final SoapImpl impl;
 
     @Bean
     public Endpoint endpoint() {

@@ -1,5 +1,8 @@
 module com.example.demo {
 
+    requires java.logging;
+    requires java.sql;
+
     requires jakarta.xml.bind;
     requires jakarta.xml.ws;
 
@@ -14,6 +17,7 @@ module com.example.demo {
     requires org.slf4j;
 
     requires io.swagger.v3.oas.models;
+    requires io.swagger.v3.oas.annotations;
 
     requires org.springdoc.openapi.ui;
 
@@ -31,11 +35,20 @@ module com.example.demo {
     requires tools.jackson.databind;
 
     opens com.example.demo to spring.core, spring.beans, spring.context, spring.web;
-    opens com.example.demo.config to spring.core, spring.beans, spring.context, spring.web;
-    opens com.example.demo.controller to spring.core, spring.beans, spring.web,
+    opens com.example.demo.api to spring.core, spring.beans, spring.context, spring.web,
             org.apache.cxf.frontend.jaxws;
+    opens com.example.demo.config to spring.core, spring.beans, spring.context, spring.web;
     opens com.example.demo.model to jakarta.xml.bind, tools.jackson.databind, spring.core,
             spring.beans, spring.context, spring.web;
+    opens com.example.demo.rest to spring.core, spring.beans, spring.context, spring.web,
+            org.apache.cxf.frontend.jaxws;
+    opens com.example.demo.soap to spring.core, spring.beans, spring.context, spring.web,
+            org.apache.cxf.frontend.jaxws;
+
+    opens com.examples.schema.hello.v1 to spring.core, spring.beans, spring.context, spring.web,
+            org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
+    opens com.examples.wsdl.helloservice_wsdl to spring.core, spring.beans, spring.context, spring.web,
+            org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
 
     exports com.example.demo;
 }
