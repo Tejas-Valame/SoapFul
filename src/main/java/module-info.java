@@ -1,54 +1,56 @@
 module com.example.demo {
 
-    requires java.logging;
-    requires java.sql;
+        requires static java.compiler;
+        requires static lombok;
 
-    requires jakarta.xml.bind;
-    requires jakarta.xml.ws;
+        requires io.swagger.v3.oas.models;
+        requires io.swagger.v3.oas.annotations;
 
-    requires static lombok;
+        requires java.logging;
+        requires java.sql;
 
-    requires micrometer.registry.prometheus;
+        requires jakarta.xml.bind;
+        requires jakarta.xml.ws;
 
-    requires org.apache.cxf.core;
-    requires org.apache.cxf.frontend.jaxws;
-    requires org.apache.cxf.spring.boot.jaxws;
+        requires micrometer.registry.prometheus;
 
-    requires org.slf4j;
+        requires org.apache.cxf.core;
+        requires org.apache.cxf.frontend.jaxws;
+        requires org.apache.cxf.spring.boot.jaxws;
 
-    requires io.swagger.v3.oas.models;
-    requires io.swagger.v3.oas.annotations;
+        requires org.slf4j;
 
-    requires org.springdoc.openapi.ui;
+        requires org.springdoc.openapi.ui;
 
-    requires spring.beans;
-    requires spring.boot;
-    requires spring.boot.actuator;
-    requires spring.boot.actuator.autoconfigure;
-    requires spring.boot.autoconfigure;
-    requires spring.context;
-    requires spring.core;
-    requires spring.web;
-    requires spring.webmvc;
-    requires spring.ws.core;
+        requires spring.beans;
+        requires spring.boot;
+        requires spring.boot.actuator;
+        requires spring.boot.actuator.autoconfigure;
+        requires spring.boot.autoconfigure;
+        requires spring.context;
+        requires spring.core;
+        requires spring.web;
+        requires spring.webmvc;
+        requires spring.ws.core;
 
-    requires tools.jackson.databind;
+        requires tools.jackson.databind;
 
-    opens com.example.demo to spring.core, spring.beans, spring.context, spring.web;
-    opens com.example.demo.api to spring.core, spring.beans, spring.context, spring.web,
-            org.apache.cxf.frontend.jaxws;
-    opens com.example.demo.config to spring.core, spring.beans, spring.context, spring.web;
-    opens com.example.demo.model to jakarta.xml.bind, tools.jackson.databind, spring.core,
-            spring.beans, spring.context, spring.web;
-    opens com.example.demo.rest to spring.core, spring.beans, spring.context, spring.web,
-            org.apache.cxf.frontend.jaxws;
-    opens com.example.demo.soap to spring.core, spring.beans, spring.context, spring.web,
-            org.apache.cxf.frontend.jaxws;
+        opens com.example.demo to spring.beans, spring.context, spring.core, spring.web;
+        opens com.example.demo.api to spring.beans, spring.context, spring.core, spring.web;
+        opens com.example.demo.config to spring.beans, spring.context, spring.core, spring.web;
 
-    opens com.examples.schema.hello.v1 to spring.core, spring.beans, spring.context, spring.web,
-            org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
-    opens com.examples.wsdl.helloservice_wsdl to spring.core, spring.beans, spring.context, spring.web,
-            org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
+        opens com.example.demo.rest to spring.core, spring.beans, spring.context, spring.web,
+                        org.apache.cxf.frontend.jaxws;
+        opens com.example.demo.soap to spring.core, spring.beans, spring.context, spring.web,
+                        org.apache.cxf.frontend.jaxws;
 
-    exports com.example.demo;
+        opens com.example.schema.hello.v1 to spring.core, spring.beans, spring.context, spring.web,
+                        org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
+        opens com.example.types to tools.jackson.databind;
+
+        opens com.example.wsdl.helloservice_wsdl to spring.core, spring.beans, spring.context, spring.web,
+                        org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
+
+        exports com.example.demo;
+
 }

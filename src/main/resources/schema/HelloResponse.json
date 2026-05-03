@@ -1,0 +1,13 @@
+{
+  "$id": "https://example.com/address.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hello Service as REST API",
+  "type": "object",
+  "properties": {
+    "greeting": {
+      "type": "string",
+      "description": "Greeting message to the user"
+    }
+  },
+  "required": ["greeting"]
+}
