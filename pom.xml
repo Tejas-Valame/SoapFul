@@ -19,6 +19,7 @@
 		<cxf.version>4.1.4</cxf.version>
 		<main-module>com.example.demo</main-module>
 		<start-class>com.example.demo.DemoApplication</start-class>
+		<assembly.id>distribution</assembly.id>
 		<!-- same as in .mvm/jvm.config. Configs defined here are used for local testing -->
 		<hibernate.validator.add-opens>
 			--add-opens
@@ -168,6 +169,27 @@
 						${hibernate.validator.add-opens}
 					</argLine>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<tarLongFileMode>posix</tarLongFileMode>
+					<filters>
+						<filter>src/main/assembly/filter.properties</filter>
+					</filters>
+					<descriptors>
+						<descriptor>src/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>${assembly.id}</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -1,0 +1,43 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/ASSEMBLY/2.2.0"
+    xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.2.0 https://maven.apache.org/xsd/assembly-2.2.0.xsd">
+
+    <id>${assembly.id}</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+
+    <fileSets>
+        <fileSet>
+            <directory>target</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>/opt/app/soapful</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/opt/app/soapful/resources</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>.mvn</directory>
+            <outputDirectory>/opt/app/soapful</outputDirectory>
+            <includes>
+                <include>jvm.config</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/etc</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/opt/app/soapful/libs</outputDirectory>
+            <useProjectArtifact>true</useProjectArtifact>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+</assembly>
