@@ -10,6 +10,6 @@ cd opt/app/soapful
 
 java \
   @jvm.config \
+  -classpath "resources/" \
   --module-path "demo.jar:libs" \
-  --module com.example.demo/com.example.demo.DemoApplication \
-  --spring.config.additional-location=file:resources/
+  --module com.example.demo/com.example.demo.DemoApplication
