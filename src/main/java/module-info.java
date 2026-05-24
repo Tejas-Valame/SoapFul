@@ -8,7 +8,6 @@ module com.example.demo {
 
         requires io.prometheus.metrics.config;
         requires io.prometheus.metrics.core;
-        requires io.prometheus.metrics.expositionformats;
         requires io.prometheus.writer.text;
         requires io.prometheus.metrics.model;
         requires io.prometheus.metrics.tracer.common;
@@ -18,23 +17,17 @@ module com.example.demo {
         requires io.swagger.v3.oas.annotations;
 
         requires java.logging;
-        requires java.sql;
 
         requires jakarta.annotation;
         requires jakarta.validation;
         requires jakarta.xml.bind;
         requires jakarta.xml.ws;
 
-        requires micrometer.commons;
-        requires micrometer.core;
-        requires micrometer.jakarta9;
-        requires micrometer.observation;
-
         requires micrometer.registry.prometheus;
         requires neethi;
-        requires wsdl4j;
-        requires xmlschema.core;
 
+        requires org.apache.commons.lang3;
+        requires org.apache.commons.logging;
         requires org.apache.cxf.binding.soap;
         requires org.apache.cxf.binding.xml;
         requires org.apache.cxf.core;
@@ -48,12 +41,12 @@ module com.example.demo {
         requires org.apache.cxf.ws.addr;
         requires org.apache.cxf.ws.policy;
         requires org.apache.cxf.wsdl;
+        requires org.apache.tomcat.embed.core;
+        requires org.apache.tomcat.embed.websocket;
 
+        requires org.hibernate.validator;
+        requires org.jspecify;
         requires org.slf4j;
-
-        requires org.springdoc.openapi.common;
-        requires org.springdoc.openapi.ui;
-        requires org.springdoc.openapi.webmvc.core;
 
         requires spring.aop;
         requires spring.beans;
@@ -79,18 +72,11 @@ module com.example.demo {
         requires spring.ws.core;
         requires spring.xml;
 
-        requires org.apache.commons.lang3;
-        requires org.apache.tomcat.embed.core;
-        requires org.apache.tomcat.embed.websocket;
-
-        requires org.apache.commons.logging;
-        requires org.hibernate.validator;
-        requires org.jspecify;
+        requires swagger.ui;
 
         requires tools.jackson.databind;
 
-        requires org.webjars.locator_lite;
-        requires swagger.ui;
+        requires xmlschema.core;
 
         opens com.example.demo to spring.aop, spring.beans, spring.context, spring.core, spring.web;
         opens com.example.demo.api to spring.aop, spring.beans, spring.context, spring.core, spring.web;
