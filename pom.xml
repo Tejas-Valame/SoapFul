@@ -183,7 +183,7 @@
 						<filter>src/main/assembly/filter.properties</filter>
 					</filters>
 					<descriptors>
-						<descriptor>src/assembly/distribution.xml</descriptor>
+						<descriptor>src/main/assembly/distribution.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>
