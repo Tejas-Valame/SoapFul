@@ -7,12 +7,14 @@ import com.example.schema.hello.v1.SayHello;
 import com.example.schema.hello.v1.SayHelloResponse;
 import com.example.wsdl.helloservice_wsdl.HelloPortType;
 
+import jakarta.xml.ws.WebServiceClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
+@WebServiceClient(wsdlLocation = "wsdl/HelloService.wsdl.wsdl") 
 public class SoapImpl implements HelloPortType {
 
     private final ServiceImpl impl;

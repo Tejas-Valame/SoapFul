@@ -85,7 +85,7 @@ module com.example.demo {
         opens com.example.demo.rest to spring.aop, spring.core, spring.beans, spring.context, spring.web,
                         org.apache.cxf.frontend.jaxws;
         opens com.example.demo.soap to spring.aop, spring.core, spring.beans, spring.context, spring.web,
-                        org.apache.cxf.frontend.jaxws;
+                        org.apache.cxf.frontend.jaxws, org.apache.cxf.core;
 
         opens com.example.schema.hello.v1 to spring.aop, spring.core, spring.beans, spring.context, spring.web,
                         org.apache.cxf.frontend.jaxws, jakarta.xml.bind, jakarta.xml.ws;
